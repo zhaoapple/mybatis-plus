@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                $.ajax({
+                    url:"/query",
+                    data:"",
+                    type:"post",
+                    dataType:"json",
+                    success:function(data){
+                        console.log(data)
+                        var list = eval(data);
+                        var str = "";
+                        $(list).each(function(){
+                            str += this.name+"<br/>"
+                        })
+                        $("#list").html(str)
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>首页</div>
+    <p>
+        <a href="/hello">hello</a>
+        <button id="btn">list</button>
+    </p>
+    <div id="list"></div>
+    <div>
+        <img src="file:///E:/11111.jpg" alt="cehsi">
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+upload-path: /soft/upload
+spring:
+  datasource:
+    data: classpath:db/data-h2.sql
+    url: jdbc:mysql://47.101.175.127:3306/plus?characterEncoding=UTF-8
+    username: root
+    password: 123
+    type: com.alibaba.druid.pool.DruidDataSource
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${upload-path}
+server:
+  port: 9333
+mybatis-plus:
+  mapper-locations: classpath*:com/info33/mybatisplus/dao/mapper/*.xml
+#mybatis-plus配置控制台打印完整带参数SQL语句
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+
+
